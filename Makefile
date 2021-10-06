@@ -6,7 +6,7 @@
 #    By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/05 15:39:21 by swang             #+#    #+#              #
-#    Updated: 2021/10/06 20:14:39 by swang            ###   ########.fr        #
+#    Updated: 2021/10/06 22:41:45 by swang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRC_DIR = src/
 SRC_NAME = main.c\
 			pipex.c\
 			ft_pipex_utils.c\
-			ft_split_pipex.c\
+			ft_split_cmd.c\
 			execute.c
 
 SRCS = $(addprefix $(SRC_DIR), $(SRC_NAME))
