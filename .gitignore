@@ -1,5 +1,5 @@
-.o
-.out
+*.o
+*.out
 test/
 study/
 pipex

@@ -1,0 +1,10 @@
+total 128$
+-rw-r--r--   1 swang  staff   1455 10  6 20:14 Makefile$
+-rw-r--r--   1 swang  staff     12 10  6 16:12 go$
+drwxr-xr-x   3 swang  staff     96 10  5 15:44 include$
+drwxr-xr-x  83 swang  staff   2656 10  5 19:01 libft$
+-rwxr-xr-x   1 swang  staff  51344 10  6 20:18 pipex$
+drwxr-xr-x  12 swang  staff    384 10  6 20:18 src$
+-rw-r--r--   1 swang  staff     25 10  6 17:29 stop$
+drwxr-xr-x  10 swang  staff    320 10  6 15:34 study$
+-rw-r--r--   1 swang  staff      0 10  6 20:18 twogo$
