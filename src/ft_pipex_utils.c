@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 11:50:04 by swang             #+#    #+#             */
-/*   Updated: 2021/10/06 20:51:45 by swang            ###   ########.fr       */
+/*   Updated: 2021/10/06 22:35:14 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,6 @@ int	check_quotation_mark(char *str, int *i)
 	ft_putstr_fd("Error\nnot closed quotation mark\n", 2);
 	return (-1);
 }
-
-
 
 void	ft_free(char **str)
 {
