@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 12:53:21 by swang             #+#    #+#             */
-/*   Updated: 2021/10/06 21:16:04 by swang            ###   ########.fr       */
+/*   Updated: 2021/10/06 22:00:03 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,13 @@ char	*get_path_str(char **envp)
 	return (path_str);
 }
 
-int check_cmd(char **path_arr, char **cmd_arr, char **envp)
+char *check_cmd(char **path_arr, char *cmd)
 {
+	//전체경로 완성하고, access로 체크 성공시 char **경로 리턴,
+	//execve를 밖으로 빼는걸로 수정완료.
 	int	i;
 	char	*tmp;
 	char	*cmd_path;
-	int	ret;
 
 	i = 0;
 	tmp = 0;
@@ -55,28 +56,24 @@ int check_cmd(char **path_arr, char **cmd_arr, char **envp)
 	{
 		tmp = ft_strjoin(path_arr[i], "/" );
 		if (tmp == 0)
-		{
-			ft_putstr_fd("Malloc_Error\n", 2);
-			break ;
-		}
-		cmd_path = ft_strjoin(tmp, cmd_arr[0]);
+			break;
+		cmd_path = ft_strjoin(tmp, cmd);
 		if (cmd_path == 0)
-		{
-			ft_putstr_fd("Malloc_Error\n", 2);
 			break ;
-		}
 		free(tmp);
 		if (access(cmd_path, X_OK | F_OK) == 0)
-			ret = execve(cmd_path, cmd_arr, envp);
+			return (cmd_path);
 		else
 		{
 			free(cmd_path);
 			i++;
 		}
 	}
-	if (!cmd_path)
-		free(cmd_path);
-	return (-1);
+	if (tmp != 0)
+		free(tmp);
+	if (cmd_path != 0)
+		free(tmp);
+	return (NULL);
 }
 
 void	execute_cmd(char *cmd, char **envp)
@@ -84,6 +81,7 @@ void	execute_cmd(char *cmd, char **envp)
 	char	*path_str;
 	char	**path_arr;
 	char	**cmd_arr;
+	char	*cmd_path;
 
 	path_str = get_path_str(envp);
 	if (path_str == NULL)
@@ -101,12 +99,10 @@ void	execute_cmd(char *cmd, char **envp)
 		ft_free(path_arr);
 		return ;
 	}
-	if (check_cmd(path_arr, cmd_arr, envp) == -1)
-	{
+	cmd_path = check_cmd(path_arr, cmd_arr[0]);
+	if (cmd_path == NULL)
 		ft_putstr_fd("Error\nFailed to execute ", 2);
-		ft_putstr_fd(cmd_arr[0], 2);
-		ft_putstr_fd("\n", 2);
-	}
+	execve(cmd_path, cmd_arr, envp);
 	ft_free(path_arr);
 	ft_free(cmd_arr);
 }
