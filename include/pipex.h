@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 19:01:49 by swang             #+#    #+#             */
-/*   Updated: 2021/10/06 22:02:51 by swang            ###   ########.fr       */
+/*   Updated: 2021/10/06 22:34:16 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_free(char **str);
 void	ft_exit(int i);
 int	check_quotation_mark(char *str, int *i);
 
-char	**ft_split_pipex(char const *s, char c);
+char	**ft_split_cmd(char const *s, char c);
 
 /* pipex */
 int		pipex(char **argv, char **envp);
