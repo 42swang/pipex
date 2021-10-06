@@ -2,4 +2,6 @@
 *.out
 test/
 study/
+.vscode/
 pipex
+files/
