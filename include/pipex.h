@@ -6,19 +6,16 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 19:01:49 by swang             #+#    #+#             */
-/*   Updated: 2021/10/06 20:14:57 by swang            ###   ########.fr       */
+/*   Updated: 2021/10/06 22:02:51 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PIPEX_H
 # define PIPEX_H
 
-# include <stdio.h>
 # include <fcntl.h>
 # include <unistd.h>
 # include <sys/wait.h>
-# include <errno.h>
-# include <string.h>
 # include "../libft/libft.h"
 
 # define STDIN 0
@@ -57,6 +54,6 @@ void	redirect_parent(t_info *info, int *pipe_fd);
 /* execute */
 void	execute_cmd(char *cmd, char **envp);
 char	*get_path_str(char **envp);
-int		check_cmd(char **path_arr, char **cmd_arr, char **envp);
+char	*check_cmd(char **path_arr, char *cmd);
 
 #endif
