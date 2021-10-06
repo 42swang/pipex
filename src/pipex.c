@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 19:03:40 by swang             #+#    #+#             */
-/*   Updated: 2021/10/06 20:28:45 by swang            ###   ########.fr       */
+/*   Updated: 2021/10/06 22:31:35 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ int		pipex(char **argv, char **envp)
 	if (first_open(&info, argv) == -1)
 			return (-1);
 	pipe(fd);
+//	system("leaks pipex");
 	pid = fork();
 	if (pid == -1)
 	{
