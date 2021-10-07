@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split_pipex.c                                   :+:      :+:    :+:   */
+/*   ft_split_cmd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/02 15:29:38 by swang             #+#    #+#             */
-/*   Updated: 2021/10/06 21:14:05 by swang            ###   ########.fr       */
+/*   Created: 2021/10/07 15:28:28 by swang             #+#    #+#             */
+/*   Updated: 2021/10/07 15:28:37 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ static char	**ft_make_res(char const *s, char c, char **res, int c_word)
 	return (res);
 }
 
-char	**ft_split_pipex(char const *s, char c)
+char	**ft_split_cmd(char const *s, char c)
 {
 	char	**res;
 	int		c_word;
