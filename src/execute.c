@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 12:53:21 by swang             #+#    #+#             */
-/*   Updated: 2021/10/07 17:02:58 by swang            ###   ########.fr       */
+/*   Updated: 2021/10/07 20:48:28 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ int	execute_cmd(char *cmd, char **envp)
 	execve(cmd_path, cmd_arr, envp);
 	free(cmd_path);
 	ft_arr_free(cmd_arr);
-	return (-1);
+	ft_exit(0, 0, 0);
+	return (0);
 }
