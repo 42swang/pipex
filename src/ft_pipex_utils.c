@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 11:50:04 by swang             #+#    #+#             */
-/*   Updated: 2021/10/07 17:08:10 by swang            ###   ########.fr       */
+/*   Updated: 2021/10/07 17:24:21 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,21 @@ int	check_quotation_mark(char *str, int *i)
 	}
 	ft_putstr_fd("Error\nnot closed quotation mark\n", 2);
 	return (-1);
+}
+
+void	find_start_end(char *s, int *i, int *start)
+{
+	char	quote;
+
+	if (s[*i] == '\'' || s[*i] == '\"')
+	{
+		*start = (*i) + 1;
+		quote = s[(*i)];
+		(*i)++;
+		while (s[*i] != quote)
+			(*i)++;
+		return ;
+	}
+	else
+		i++;
 }
