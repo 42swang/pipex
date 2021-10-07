@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 15:28:28 by swang             #+#    #+#             */
-/*   Updated: 2021/10/07 17:07:20 by swang            ###   ########.fr       */
+/*   Updated: 2021/10/07 17:23:15 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ static char	**ft_make_res(char const *s, char c, char **res, int c_word)
 	int		start;
 	int		end;
 	int		res_i;
-	char	keep;
 
 	i = 0;
 	start = 0;
@@ -72,18 +71,7 @@ static char	**ft_make_res(char const *s, char c, char **res, int c_word)
 			i++;
 		start = i;
 		while (s[i] && s[i] != c)
-		{
-			if (s[i] == '\'' || s[i] == '\"')
-			{
-				start = i + 1;
-				keep = s[i++];
-				while (s[i] != keep)
-					i++;
-				break ;
-			}
-			else
-				i++;
-		}		
+			find_start_end((char *)s, &i, &start);
 		end = i - 1;
 		res[res_i] = ft_substr(s, (unsigned int)start,
 				(size_t)(end - start + 1));
