@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 11:50:04 by swang             #+#    #+#             */
-/*   Updated: 2021/10/06 22:35:14 by swang            ###   ########.fr       */
+/*   Updated: 2021/10/07 12:51:53 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	init_info(t_info *info)
 	info->cmd2 = 0;
 }
 
-int	first_open(t_info *info, char **argv)
+int	pre_open(t_info *info, char **argv)
 {
 	info->file1 = argv[1];
 	info->file2 = argv[4];
