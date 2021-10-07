@@ -5,3 +5,5 @@ study/
 .vscode/
 pipex
 files/
+infile
+outfile
