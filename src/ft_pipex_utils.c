@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 11:50:04 by swang             #+#    #+#             */
-/*   Updated: 2021/10/07 17:54:41 by swang            ###   ########.fr       */
+/*   Updated: 2021/10/07 20:51:45 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,14 @@ int	pre_open(t_info *info, char **argv)
 	if (info->file1_fd == -1)
 	{
 		ft_putstr_fd("Error\nCan't open file1\n", 2);
-		return (-1);
+		ft_exit(0, info, 0);
 	}
 	info->file2_fd = open(info->file2, O_RDWR | O_CREAT | O_TRUNC, 00644);
 	if (info->file2_fd == -1)
 	{
 		ft_putstr_fd("Error\nCan't open file2\n", 2);
 		close(info->file1_fd);
-		return (-1);
+		ft_exit(0, info, 0);
 	}
 	return (0);
 }
@@ -65,23 +65,23 @@ int	check_quotation_mark(char *str, int *i)
 	return (-1);
 }
 
-int	find_start_end(char *s, int i, int *start, char c)
+int	find_start_end(char *s, int *i, int *start, char c)
 {
 	char	quote;
-	
-	while (s[i] && s[i] != c)
+
+	while (s[*i] && s[*i] != c)
 	{
-		if (s[i] == '\'' || s[i] == '\"')
+		if (s[*i] == '\'' || s[*i] == '\"')
 		{
-			*start = i + 1;
-			quote = s[i];
-			i++;
-			while (s[i] != quote)
-				i++;
-			return (i);
+			*start = *i + 1;
+			quote = s[*i];
+			(*i)++;
+			while (s[*i] != quote)
+				(*i)++;
+			return (*i);
 		}
 		else
-			i++;
+			(*i)++;
 	}
-	return (i);
+	return (*i);
 }
