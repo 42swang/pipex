@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 11:50:04 by swang             #+#    #+#             */
-/*   Updated: 2021/10/07 17:24:21 by swang            ###   ########.fr       */
+/*   Updated: 2021/10/07 17:54:41 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,19 +65,23 @@ int	check_quotation_mark(char *str, int *i)
 	return (-1);
 }
 
-void	find_start_end(char *s, int *i, int *start)
+int	find_start_end(char *s, int i, int *start, char c)
 {
 	char	quote;
-
-	if (s[*i] == '\'' || s[*i] == '\"')
+	
+	while (s[i] && s[i] != c)
 	{
-		*start = (*i) + 1;
-		quote = s[(*i)];
-		(*i)++;
-		while (s[*i] != quote)
-			(*i)++;
-		return ;
+		if (s[i] == '\'' || s[i] == '\"')
+		{
+			*start = i + 1;
+			quote = s[i];
+			i++;
+			while (s[i] != quote)
+				i++;
+			return (i);
+		}
+		else
+			i++;
 	}
-	else
-		i++;
+	return (i);
 }
