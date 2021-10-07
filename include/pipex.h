@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 19:01:49 by swang             #+#    #+#             */
-/*   Updated: 2021/10/06 22:34:16 by swang            ###   ########.fr       */
+/*   Updated: 2021/10/07 15:23:46 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,13 @@ typedef	struct s_info
 
 /* main*/
 int		main(int argc, char *argv[], char **envp);
+void	ft_arr_free(char **str);
+void	ft_exit(int i, t_info *info, char **str);
 
 /* pipex utils */
-int		first_open(t_info *info, char **argv);
+int	pre_open(t_info *info, char **argv);
 void	init_info(t_info *info);
-void	ft_free(char **str);
-void	ft_exit(int i);
 int	check_quotation_mark(char *str, int *i);
-
 char	**ft_split_cmd(char const *s, char c);
 
 /* pipex */
@@ -52,8 +51,7 @@ void	parent(t_info *info, int *pipe_fd, char **envp);
 void	redirect_parent(t_info *info, int *pipe_fd);
 
 /* execute */
-void	execute_cmd(char *cmd, char **envp);
-char	*get_path_str(char **envp);
-char	*check_cmd(char **path_arr, char *cmd);
+int		execute_cmd(char *cmd, char **envp);
+char	*get_cmd_path(char **envp, char *cmd);
 
 #endif
