@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 19:01:49 by swang             #+#    #+#             */
-/*   Updated: 2021/10/07 15:23:46 by swang            ###   ########.fr       */
+/*   Updated: 2021/10/07 17:09:02 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define STDOUT 1
 # define STDERR 2
 
-typedef	struct s_info
+typedef struct s_info
 {
 	int		file1_fd;
 	int		file2_fd;
@@ -38,9 +38,9 @@ void	ft_arr_free(char **str);
 void	ft_exit(int i, t_info *info, char **str);
 
 /* pipex utils */
-int	pre_open(t_info *info, char **argv);
+int		pre_open(t_info *info, char **argv);
 void	init_info(t_info *info);
-int	check_quotation_mark(char *str, int *i);
+int		check_quotation_mark(char *str, int *i);
 char	**ft_split_cmd(char const *s, char c);
 
 /* pipex */

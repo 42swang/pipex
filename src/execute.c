@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 12:53:21 by swang             #+#    #+#             */
-/*   Updated: 2021/10/07 15:23:14 by swang            ###   ########.fr       */
+/*   Updated: 2021/10/07 17:02:58 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	execute_cmd(char *cmd, char **envp)
 {
 	char	**cmd_arr;
 	char	*cmd_path;
-	
+
 	cmd_arr = ft_split_cmd(cmd, ' ');
 	if (cmd_arr == NULL)
 	{

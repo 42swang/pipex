@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 15:28:28 by swang             #+#    #+#             */
-/*   Updated: 2021/10/07 15:28:37 by swang            ###   ########.fr       */
+/*   Updated: 2021/10/07 17:07:20 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,11 @@ static int	ft_count_word(char const *s, char c)
 
 static char	**ft_make_res(char const *s, char c, char **res, int c_word)
 {
-	int	i;
-	int	start;
-	int	end;
-	int	res_i;
-	char keep;
+	int		i;
+	int		start;
+	int		end;
+	int		res_i;
+	char	keep;
 
 	i = 0;
 	start = 0;
@@ -68,12 +68,12 @@ static char	**ft_make_res(char const *s, char c, char **res, int c_word)
 	res_i = 0;
 	while (res_i < c_word && s[i])
 	{
-		while (s[i] && s[i] == c)// ' '
+		while (s[i] && s[i] == c)
 			i++;
 		start = i;
 		while (s[i] && s[i] != c)
 		{
-			if(s[i] == '\'' || s[i] == '\"')
+			if (s[i] == '\'' || s[i] == '\"')
 			{
 				start = i + 1;
 				keep = s[i++];

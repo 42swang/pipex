@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 11:50:04 by swang             #+#    #+#             */
-/*   Updated: 2021/10/07 13:41:40 by swang            ###   ########.fr       */
+/*   Updated: 2021/10/07 17:08:10 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,14 @@ int	pre_open(t_info *info, char **argv)
 int	check_quotation_mark(char *str, int *i)
 {
 	char	c;
-	int idx;
+	int		idx;
 
 	idx = *i;
 	c = *str;
 	(*i)++;
 	while (str[*i])
 	{
-		if(str[*i] == c)
+		if (str[*i] == c)
 		{
 			(*i) += idx + 1;
 			return (0);

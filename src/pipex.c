@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 19:03:40 by swang             #+#    #+#             */
-/*   Updated: 2021/10/07 15:32:50 by swang            ###   ########.fr       */
+/*   Updated: 2021/10/07 17:07:53 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	child(t_info *info, int *pipe_fd, char **envp)
 	execute_cmd(info->cmd1, envp);
 }
 
-int		pipex(char **argv, char **envp)
+int	pipex(char **argv, char **envp)
 {
 	int		fd[2];
 	int		status;
@@ -73,7 +73,7 @@ int		pipex(char **argv, char **envp)
 
 	init_info(&info);
 	if (pre_open(&info, argv) == -1)
-			return (-1);
+		return (-1);
 	pipe(fd);
 	pid = fork();
 	if (pid == -1)

@@ -6,20 +6,20 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 13:56:20 by swang             #+#    #+#             */
-/*   Updated: 2021/10/07 15:15:59 by swang            ###   ########.fr       */
+/*   Updated: 2021/10/07 17:06:10 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex.h"
 
-static char *get_access_path(char **path_arr, char *cmd)
+static char	*get_access_path(char **path_arr, char *cmd)
 {
-	int	i;
+	int		i;
 	char	*tmp;
 	char	*path;
 
 	i = 0;
-	while(path_arr[i])
+	while (path_arr[i])
 	{
 		tmp = ft_strjoin(path_arr[i], "/");
 		if (tmp == 0)
@@ -65,7 +65,7 @@ static char	*get_path_str(char **envp)
 	return (path_str);
 }
 
-char *get_cmd_path(char **envp, char *cmd)
+char	*get_cmd_path(char **envp, char *cmd)
 {
 	char	*path_str;
 	char	**path_arr;
