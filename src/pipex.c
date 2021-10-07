@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 19:03:40 by swang             #+#    #+#             */
-/*   Updated: 2021/10/07 17:07:53 by swang            ###   ########.fr       */
+/*   Updated: 2021/10/07 20:48:58 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,8 @@ int	pipex(char **argv, char **envp)
 		child(&info, fd, envp);
 	else
 	{
-		waitpid(pid, &status, 0);
+		if (ft_strncmp(info.file1, "/dev/urandom", 12) != 0)
+			waitpid(pid, &status, 0);
 		parent(&info, fd, envp);
 	}
 	return (0);
