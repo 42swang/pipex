@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 19:01:49 by swang             #+#    #+#             */
-/*   Updated: 2021/10/07 17:23:43 by swang            ###   ########.fr       */
+/*   Updated: 2021/10/07 17:52:42 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ft_exit(int i, t_info *info, char **str);
 int		pre_open(t_info *info, char **argv);
 void	init_info(t_info *info);
 int		check_quotation_mark(char *str, int *i);
-void	find_start_end(char *s, int *i, int *start);
+int		find_start_end(char *s, int i, int *start, char c);
 char	**ft_split_cmd(char const *s, char c);
 
 /* pipex */
