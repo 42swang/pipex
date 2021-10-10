@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 19:02:01 by swang             #+#    #+#             */
-/*   Updated: 2021/10/11 00:22:26 by swang            ###   ########.fr       */
+/*   Updated: 2021/10/11 05:08:50 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_arr_free(char **str)
 	free(str);
 }
 
-int	main(int argc, char *argv[], char **envp)
+int	main(int argc, char **argv, char **envp)
 {
 	int	ret;
 
