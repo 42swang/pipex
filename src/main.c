@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 19:02:01 by swang             #+#    #+#             */
-/*   Updated: 2021/10/07 17:05:30 by swang            ###   ########.fr       */
+/*   Updated: 2021/10/11 00:22:26 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,23 +23,6 @@ void	ft_arr_free(char **str)
 		i++;
 	}
 	free(str);
-}
-
-void	ft_exit(int i, t_info *info, char **str)
-{
-	if (i == 0)
-		exit(i);
-	else if (i == 1)
-	{
-		close(info->file1_fd);
-		close(info->file2_fd);
-		exit(0);
-	}
-	else
-	{
-		ft_arr_free(str);
-		exit(0);
-	}
 }
 
 int	main(int argc, char *argv[], char **envp)

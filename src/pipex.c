@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 19:03:40 by swang             #+#    #+#             */
-/*   Updated: 2021/10/10 17:11:44 by swang            ###   ########.fr       */
+/*   Updated: 2021/10/11 00:23:52 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,18 @@ void	redirect_parent(t_info *info, int *pipe_fd)
 		ft_putstr_fd("Error\nFailed to stdin redirect in parent process\n", 2);
 		close(pipe_fd[0]);
 		close(pipe_fd[1]);
-		ft_exit(1, info, 0);
+		close(info->file1_fd);
+		close(info->file2_fd);
+		exit(0);
 	}
 	if (dup2(info->file2_fd, STDOUT) == -1)
 	{
 		ft_putstr_fd("Error\nFailed to stdout redirect in parent process\n", 2);
 		close(pipe_fd[0]);
 		close(pipe_fd[1]);
-		ft_exit(1, info, 0);
+		close(info->file1_fd);
+		close(info->file2_fd);
+		exit(0);
 	}
 	close(pipe_fd[0]);
 	close(pipe_fd[1]);
@@ -41,14 +45,18 @@ void	redirect_child(t_info *info, int *pipe_fd)
 		ft_putstr_fd("Error : Failed to stdin redirect in child process\n", 2);
 		close(pipe_fd[0]);
 		close(pipe_fd[1]);
-		ft_exit(1, info, 0);
+		close(info->file1_fd);
+		close(info->file2_fd);
+		exit(0);
 	}
 	if (dup2(pipe_fd[1], 1) == -1)
 	{
 		ft_putstr_fd("Error : Failed to stdout redirect in child process\n", 2);
 		close(pipe_fd[0]);
 		close(pipe_fd[1]);
-		ft_exit(1, info, 0);
+		close(info->file1_fd);
+		close(info->file2_fd);
+		exit(0);
 	}
 	close(pipe_fd[0]);
 	close(pipe_fd[1]);
@@ -89,8 +97,7 @@ int	pipex(char **argv, char **envp)
 		child(&info, fd, envp);
 	else
 	{
-		if (ft_strncmp(info.file1, "/dev/urandom", 12) != 0)
-			waitpid(pid, &status, 0);
+		waitpid(pid, &status, WNOHANG);
 		parent(&info, fd, envp);
 	}
 	return (0);

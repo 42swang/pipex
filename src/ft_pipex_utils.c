@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 11:50:04 by swang             #+#    #+#             */
-/*   Updated: 2021/10/07 20:51:45 by swang            ###   ########.fr       */
+/*   Updated: 2021/10/11 00:20:24 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,14 @@ int	pre_open(t_info *info, char **argv)
 	if (info->file1_fd == -1)
 	{
 		ft_putstr_fd("Error\nCan't open file1\n", 2);
-		ft_exit(0, info, 0);
+		exit(0);
 	}
 	info->file2_fd = open(info->file2, O_RDWR | O_CREAT | O_TRUNC, 00644);
 	if (info->file2_fd == -1)
 	{
 		ft_putstr_fd("Error\nCan't open file2\n", 2);
 		close(info->file1_fd);
-		ft_exit(0, info, 0);
+		exit(0);
 	}
 	return (0);
 }
