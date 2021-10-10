@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 19:03:40 by swang             #+#    #+#             */
-/*   Updated: 2021/10/07 20:48:58 by swang            ###   ########.fr       */
+/*   Updated: 2021/10/10 17:11:44 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ void	redirect_parent(t_info *info, int *pipe_fd)
 		close(pipe_fd[1]);
 		ft_exit(1, info, 0);
 	}
+	close(pipe_fd[0]);
 	close(pipe_fd[1]);
+	close(info->file1_fd);
 	close(info->file2_fd);
 }
 
@@ -49,7 +51,9 @@ void	redirect_child(t_info *info, int *pipe_fd)
 		ft_exit(1, info, 0);
 	}
 	close(pipe_fd[0]);
+	close(pipe_fd[1]);
 	close(info->file1_fd);
+	close(info->file2_fd);
 }
 
 void	parent(t_info *info, int *pipe_fd, char **envp)
