@@ -6,7 +6,7 @@
 #    By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/05 15:39:21 by swang             #+#    #+#              #
-#    Updated: 2021/10/07 15:22:30 by swang            ###   ########.fr        #
+#    Updated: 2021/10/12 01:33:24 by swang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,11 +43,11 @@ $(NAME) : $(OBJS)
 	
 clean :
 		make -C $(LIB_DIR) clean
-		rm $(OBJS)
+		rm -rf $(OBJS)
 
 fclean : clean
 		make -C $(LIB_DIR) fclean
-		rm $(NAME)
+		rm -rf $(NAME)
 
 re : clean all
 
